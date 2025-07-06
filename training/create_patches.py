@@ -19,7 +19,7 @@ from utils.patches import (
 )
 
 
-data_filename = "/MTD_MSIL2A.xml"
+data_filename = "/MTD_MSIL2A.xml" 
 
 # sleep(randint(0, 20))
 
@@ -138,7 +138,7 @@ def readS2fromFile(
     ds60 = gdal.Open(selected_60m_data_set[0])
 
     def validate_description(description):
-        m = re.match("(.*?), central wavelength (\d+) nm", description)
+        m = re.match(r"(.*?), central wavelength (\d+) nm", description)
         if m:
             return m.group(1) + " (" + m.group(2) + " nm)"
         # Some HDR restrictions... ENVI band names should not include commas
