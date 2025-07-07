@@ -267,9 +267,9 @@ def save_random_patches(dset_20gt, dset_10, dset_20, file, NR_CROP=8000):
     image_20 = np.zeros((NR_CROP, BANDS20) + PATCH_SIZE_LR).astype(np.float32)
     image_10 = np.zeros((NR_CROP, BANDS10) + PATCH_SIZE_HR).astype(np.float32)
 
-    # print(label_20.shape)
-    # print(image_20.shape)
-    # print(image_10.shape)
+    print("label_20.shape", label_20.shape)
+    print("image_20.shape", image_20.shape)
+    print("image_10.shape", image_10.shape)
 
     i = 0
     for crop in range(0, NR_CROP):
@@ -328,10 +328,10 @@ def save_random_patches60(dset_60gt, dset_10, dset_20, dset_60, file, NR_CROP=50
     image_20 = np.zeros((NR_CROP, BANDS20) + PATCH_SIZE_20).astype(np.float32)
     image_60 = np.zeros((NR_CROP, BANDS60) + PATCH_SIZE_60).astype(np.float32)
 
-    print(label_60.shape)
-    print(image_10.shape)
-    print(image_20.shape)
-    print(image_60.shape)
+    print("label_60.shape", label_60.shape)
+    print("image_10.shape", image_10.shape)
+    print("image_20.shape", image_20.shape)
+    print("image_60.shape", image_60.shape)
 
     i = 0
     for crop in range(0, NR_CROP):

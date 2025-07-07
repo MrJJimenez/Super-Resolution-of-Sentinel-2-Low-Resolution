@@ -18,7 +18,7 @@ while np.sum(index.astype(np.int32)) < nb:
     index[x] = True
     i += 1
 
-path = "../data/train/"
+path = "../data/train60/"
 np.save(path + "val_index.npy", index)
 
 print("Full no of samples: {}".format(size))
