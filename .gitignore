@@ -1,4 +1,5 @@
 .env
 /data/train60/
 /data/train/
+/data/test60/
 /data/raw_sentinel2/
