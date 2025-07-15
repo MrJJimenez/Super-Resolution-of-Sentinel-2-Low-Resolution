@@ -35,9 +35,9 @@ def readS2fromFile(
 ):
 
     if run_60:
-        select_bands = "B1,B2,B3,B4,B5,B6,B7,B8,B8A,B9,B10,B11,B12"
+        select_bands = "B1,B2,B3,B4,B5,B6,B7,B8,B8A,B9,B11,B12"
     else:
-        select_bands = "B2,B3,B4,B5,B6,B7,B8,B8A,B10,B11,B12"
+        select_bands = "B2,B3,B4,B5,B6,B7,B8,B8A,B11,B12"
 
     raster = gdal.Open(data_file + data_filename)
 
