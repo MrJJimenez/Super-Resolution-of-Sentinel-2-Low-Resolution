@@ -265,7 +265,7 @@ def readS2fromFile(
     if not true_data:
         if run_60:
             data60_gt = data60
-            data10_lr = downPixelAggr(data10_gt, SCALE=scale60)
+            data10_lr = downPixelAggr(data10_gt, SCALE=scale60) #remove
             data20_lr = downPixelAggr(data20_gt, SCALE=scale60)
             data60_lr = downPixelAggr(data60_gt, SCALE=scale60)
         else:
