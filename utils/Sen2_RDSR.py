@@ -51,7 +51,7 @@ class RDBlock(nn.Module):
         x = self.tail(x)
         return x
     
-    
+# TODO check the input image sizes, bicubic not needed inside the model    
 class Sen2RDSR(nn.Module):
     def __init__(self):
         super().__init__()
