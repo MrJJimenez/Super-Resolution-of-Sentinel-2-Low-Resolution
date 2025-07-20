@@ -55,16 +55,19 @@ class RDBlock(nn.Module):
 class Sen2RDSR(nn.Module):
     def __init__(self):
         super().__init__()
-        self.sr20_block = RDBlock(in_channels=10 + 6, out_channels=6)  # 10m + upsampled 20m
-        self.sr60_block = RDBlock(in_channels=10 + 6 + 2, out_channels=2)  # 10m + sr20 + upsampled 60m
+        self.sr20_block = RDBlock(in_channels=4 + 6, out_channels=6)  # 4m + upsampled 20m
+        self.sr60_block = RDBlock(in_channels=4 + 6 + 2, out_channels=2)  # 4m + sr20 + upsampled 60m
 
         # Flags to control training stages
         self.train_sr20 = True
         self.train_sr60 = True
 
     def forward(self, im10, im20, im60):
-        im20_up = F.interpolate(im20, scale_factor=2, mode='bicubic', align_corners=False)
-        im60_up = F.interpolate(im60, scale_factor=6, mode='bicubic', align_corners=False)
+        # TODO: check if bicubic is needed within the model
+        #im20_up = F.interpolate(im20, scale_factor=2, mode='bicubic', align_corners=False)
+        #im60_up = F.interpolate(im60, scale_factor=6, mode='bicubic', align_corners=False)
+        im20_up = im20
+        im60_up = im60
 
         if self.train_sr20:
             sr20_input = torch.cat([im10, im20_up], dim=1)
