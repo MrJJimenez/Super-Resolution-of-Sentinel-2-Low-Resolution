@@ -308,8 +308,8 @@ def save_random_patches(dset_20gt, dset_10, dset_20, file, NR_CROP=8000):
 
     np.save(file + "data20_gt", label_20)
     data20_interp = interp_patches(image_20, image_10_shape)
-    #np.save(file + "data20", data20_interp)
-    np.save(file + "data20", image_20)
+    np.save(file + "data20", data20_interp)
+    #np.save(file + "data20", image_20)
 
     print("patches saved")
     print("data20_gt shape:", label_20.shape)
