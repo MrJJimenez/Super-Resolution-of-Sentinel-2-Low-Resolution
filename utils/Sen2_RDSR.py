@@ -79,11 +79,16 @@ class Sen2RDSR(nn.Module):
                 sr20_residual = self.sr20_block(sr20_input)
                 sr20 = im20_up + sr20_residual
 
-        if self.train_sr60:
+        # SR60 logic: if only training SR20, return im10 for SR60 to prevent null computation
+        if self.train_sr20 and not self.train_sr60:
+            # When training only SR20, return im10 as SR60 
+            sr60 = im10
+        elif self.train_sr60:
             sr60_input = torch.cat([im10, sr20, im60_up], dim=1)
             sr60_residual = self.sr60_block(sr60_input)
             sr60 = im60_up + sr60_residual
         else:
+            # Normal forward pass (not training either block)
             with torch.no_grad():
                 sr60_input = torch.cat([im10, sr20, im60_up], dim=1)
                 sr60_residual = self.sr60_block(sr60_input)
