@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import torch.nn.init as init
 
 # Dense Block (5 conv layers with dense connections)
 class DenseBlock(nn.Module):
@@ -61,6 +62,9 @@ class Sen2RDSR(nn.Module):
         # Flags to control training stages
         self.train_sr20 = True
         self.train_sr60 = True
+        
+        # Initialize weights with Xavier initialization
+        self._initialize_weights()
 
     def forward(self, im10, im20, im60):
         # TODO: check if bicubic is needed within the model
@@ -115,6 +119,14 @@ class Sen2RDSR(nn.Module):
         self.train_sr60 = True
         for p in self.sr60_block.parameters():
             p.requires_grad = True
+    
+    def _initialize_weights(self):
+        """Initialize all Conv2d layers with Xavier uniform initialization."""
+        for module in self.modules():
+            if isinstance(module, nn.Conv2d):
+                init.xavier_uniform_(module.weight)
+                if module.bias is not None:
+                    init.constant_(module.bias, 0)
 
 """ 
 # Full Sen2-RDSR Model
