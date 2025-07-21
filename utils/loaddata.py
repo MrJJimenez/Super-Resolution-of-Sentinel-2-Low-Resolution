@@ -1,6 +1,7 @@
 import numpy as np
 import torch
 import os
+# sys.path.append("../")  # Removed problematic path append
 
 # Real Dataset for Sentinel-2 20m Super-Resolution
 def normalize_band(band_data):
@@ -27,21 +28,52 @@ def normalize_image_per_band(image):
     return normed
 
 class Sentinel2Dataset():
-    def __init__(self, dataset_type="20train"):
+    def __init__(self, dataset_type="20train", base_data_path=None):
         super().__init__()
+        
+        # Auto-detect environment and set appropriate base path
+        if base_data_path is None:
+            try:
+                # Check if running in Google Colab
+                if 'google.colab' in str(get_ipython()):
+                    # Running in Google Colab
+                    base_data_path = "/content/drive/MyDrive/Colab Notebooks/Super-Resolution of Sentinel-2 Low Resolution/data"
+                    print("🔍 Detected Google Colab environment")
+                else:
+                    # Running locally
+                    base_data_path = "../data"
+                    print("🔍 Detected local environment")
+            except NameError:
+                # get_ipython() not available (running in script), assume local
+                base_data_path = "../data"
+                print("🔍 Detected script environment (assuming local)")
         
         # Determine the folder based on dataset type
         if dataset_type == "20train":
-            self.train_folder = "../data/train"
+            self.train_folder = os.path.join(base_data_path, "train")
             self.load_60m = False
         elif dataset_type == "60train":
-            self.train_folder = "../data/train60"
+            self.train_folder = os.path.join(base_data_path, "train60")
             self.load_60m = True
         else:
             raise ValueError("dataset_type must be either '20train' or '60train'")
         
         self.dataset_type = dataset_type
         print(f"Loading {dataset_type} data from {self.train_folder}")
+        
+        # Check if the data folder exists
+        if not os.path.exists(self.train_folder):
+            print(f"❌ ERROR: Data folder not found at {self.train_folder}")
+            try:
+                if 'google.colab' in str(get_ipython()):
+                    print("💡 COLAB SETUP INSTRUCTIONS:")
+                    print("   1. Make sure you've mounted Google Drive")
+                    print("   2. Upload your data folder to Google Drive at:")
+                    print("      MyDrive/Colab Notebooks/Super-Resolution of Sentinel-2 Low Resolution/data/")
+                    print("   3. Or specify a custom base_data_path parameter")
+            except NameError:
+                pass  # Not in notebook environment
+            raise FileNotFoundError(f"Data folder not found: {self.train_folder}")
         
         # Find all subfolders containing the required .npy files
         self.samples = []
