@@ -68,7 +68,7 @@ class Sen2RDSR(nn.Module):
         #im60_up = F.interpolate(im60, scale_factor=6, mode='bicubic', align_corners=False)
         im20_up = im20
         im60_up = im60
-
+        
         if self.train_sr20:
             sr20_input = torch.cat([im10, im20_up], dim=1)
             sr20_residual = self.sr20_block(sr20_input)
