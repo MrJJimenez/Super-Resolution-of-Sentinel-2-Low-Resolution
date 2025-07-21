@@ -127,7 +127,7 @@ class Sentinel2Dataset():
             # For 60train: target20 is empty, load 60m data
             target20 = torch.empty(0)
             im60 = self.im60[idx]         # [6, H, W] - already normalized
-            target60 = self.target60[idx] # [6, H, W] - already normalized
+            target60 = self.target60[idx] # [2, H, W] - already normalized
             im60 = torch.from_numpy(im60).float()
             target60 = torch.from_numpy(target60).float()
         else:
