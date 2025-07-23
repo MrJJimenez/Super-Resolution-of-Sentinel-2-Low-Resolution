@@ -15,11 +15,12 @@ class DenseBlock(nn.Module):
 
     def forward(self, x):
         features = [x]
-        for layer in self.layers:
-            out = layer(torch.cat(features, 1))
-            out = self.activation(out)
+        for i, layer in enumerate(self.layers):
+            out = layer(torch.cat(features, dim=1))
+            if i < len(self.layers) - 1:
+                out = self.activation(out)
             features.append(out)
-        return torch.cat(features, 1)[:, :x.shape[1], :, :]  # crop to input channels
+        return out  # output of Conv5 without activation
 
 
 # RRDB: Residual-in-Residual Dense Block
@@ -32,10 +33,10 @@ class RRDB(nn.Module):
         self.block3 = DenseBlock(channels)
 
     def forward(self, x):
-        out = self.block1(x)
-        out = self.block2(out)
-        out = self.block3(out)
-        return x + self.beta * out
+        out1 = self.block1(x) * self.beta + x
+        out2 = self.block2(out1) * self.beta + out1
+        out3 = self.block3(out2) * self.beta + out2
+        return out3 * self.beta + x
 
 
 # RD Block: Conv -> RRDBs -> Conv
@@ -43,7 +44,7 @@ class RDBlock(nn.Module):
     def __init__(self, in_channels, out_channels, num_rrdb=3):
         super().__init__()
         self.head = nn.Conv2d(in_channels, 128, kernel_size=3, padding=1)
-        self.rrdb_blocks = nn.Sequential(*[RRDB(128) for _ in range(num_rrdb)])
+        self.rrdb_blocks = nn.Sequential(*[RRDB(channels=128, beta=0.2) for _ in range(num_rrdb)])
         self.tail = nn.Conv2d(128, out_channels, kernel_size=3, padding=1)
 
     def forward(self, x):
