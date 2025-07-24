@@ -1,7 +1,9 @@
 # Sentinel-2 Super-Resolution with Residual Dense CNNs 🛰️
 
 <div align="center">
+
 ![Ammersee Germany](images/ammersee.png)
+
 *Super-resolution example of the 20m/px bands of Lake Ammersee in Germany*
 
 ![Sentinel-2 Satellite](images/sentinell-2.png)
