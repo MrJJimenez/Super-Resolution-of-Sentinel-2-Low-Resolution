@@ -40,11 +40,9 @@ conda activate sent2env
 python training/create_patches.py [path_to_SAFE_directory]
 
 # Train the model on google colab
-python training/training.ipynb
+jupiter notebook training/training.ipynb
 
-# Evaluate results
-jupyter notebook sr60_evaluation.ipynb
-```
+
 
 ## 🛰️ About Sentinel-2
 
