@@ -1,5 +1,7 @@
 # Sentinel-2 Super-Resolution with Residual Dense CNNs 🛰️
 
+This project is still in progress.
+
 <div align="center">
 
 ![Ammersee Germany](images/ammersee.png)
