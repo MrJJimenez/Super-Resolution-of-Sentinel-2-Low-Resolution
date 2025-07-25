@@ -8,9 +8,9 @@ This project is still in progress.
 
 *Super-resolution example of the 20m/px bands of Lake Ammersee in Germany*
 
-![Sentinel-2 Satellite](images/sentinell-2.png)
+![DL model](images/model.png)
 
-*Enhanced resolution satellite imagery through deep learning*
+*Sen2-RDSR (Sentinel-2 Residual Dense Super-Resolution)*
 
 </div>
 
