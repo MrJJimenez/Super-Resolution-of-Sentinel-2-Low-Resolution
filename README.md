@@ -1,4 +1,4 @@
-# Sentinel-2 Super-Resolution with Residual Dense CNNs 🛰️
+# Sentinel-2 Super-Resolution with Residual Dense CNNs
 
 This project is still in progress.
 
@@ -14,26 +14,26 @@ This project is still in progress.
 
 </div>
 
-## 🔍 Overview
+## Overview
 
 This project implements **single-image super-resolution** for Sentinel-2 satellite imagery using **Residual Dense Convolutional Neural Networks (RDCNNs)**. The goal is to enhance the spatial resolution of Sentinel-2's lower-resolution spectral bands (20m and 60m) by leveraging information from the higher-resolution 10m bands.
 
 ### Key Features
-- 🎯 **Multi-scale super-resolution**: Enhances 20m → 10m and 60m → 10m bands
-- 🧠 **Deep learning approach**: Uses residual dense blocks for feature extraction
-- 📡 **Real satellite data**: Works with actual Sentinel-2 MSIL1C products
-- 🔬 **Research reproduction**: Replicates results from peer-reviewed scientific paper
+- **Multi-scale super-resolution**: Enhances 20m → 10m and 60m → 10m bands
+- **Deep learning approach**: Uses residual dense blocks for feature extraction
+- **Real satellite data**: Works with actual Sentinel-2 MSIL1C products
+- **Research reproduction**: Replicates results from peer-reviewed scientific paper
 
 ![Band Analogies](images/cats_analogies_with_bands.png)
 
-## 📚 Research Background
+## Research Background
 
 This implementation reproduces the methodology from:
 > **"Single-Image Super-Resolution of Sentinel-2 Low Resolution Bands with Residual Dense Convolutional Neural Networks"**  
 > Published in *Remote Sensing* journal  
-> 🔗 [Read the paper](https://www.mdpi.com/2072-4292/13/24/5007)
+> [Read the paper](https://www.mdpi.com/2072-4292/13/24/5007)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Environment Setup
 ```bash
@@ -50,7 +50,7 @@ jupiter notebook training/training.ipynb
 
 
 
-## 🛰️ About Sentinel-2
+## About Sentinel-2
 
 Sentinel-2 satellites provide multispectral imagery with different spatial resolutions:
 - **10m bands**: B2, B3, B4, B8 (visible + NIR)
