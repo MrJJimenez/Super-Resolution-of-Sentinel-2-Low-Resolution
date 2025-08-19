@@ -34,6 +34,7 @@ This implementation reproduces the methodology from:
 > [Read the paper](https://www.mdpi.com/2072-4292/13/24/5007)
 
 ## Quick Start
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MrJJimenez/Super-Resolution-of-Sentinel-2-Low-Resolution/blob/main/training/training.ipynb)
 
 ### Environment Setup
 ```bash
