@@ -1,12 +1,6 @@
-# Sentinel-2 Super-Resolution with Residual Dense CNNs
-
-This project is still in progress.
+<h1 align=center> Sentinel-2 Super-Resolution </h1>
 
 <div align="center">
-
-![Ammersee Germany](images/ammersee.png)
-
-*Super-resolution example of the 20m/px bands of Lake Ammersee in Germany*
 
 ![DL model](images/model.png)
 
@@ -14,9 +8,20 @@ This project is still in progress.
 
 </div>
 
+
 ## Overview
 
-This project implements **single-image super-resolution** for Sentinel-2 satellite imagery using **Residual Dense Convolutional Neural Networks (RDCNNs)**. The goal is to enhance the spatial resolution of Sentinel-2's lower-resolution spectral bands (20m and 60m) by leveraging information from the higher-resolution 10m bands.
+This project implements **single-image super-resolution** for Sentinel-2 satellite imagery using **Residual Dense Convolutional Neural Networks (RDCNNs)**. The goal is to enhance the spatial resolution of Sentinel-2's lower-resolution spectral bands (20m and 60m) by leveraging information from the higher-resolution 10m bands. High spatial resolution is essential for
+precise land cover classification and vegetation monitoring.
+
+## Quick Start
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MrJJimenez/Super-Resolution-of-Sentinel-2-Low-Resolution/blob/main/training/training.ipynb)
+
+> **_NOTE_**: This project is still in progress.
+
+![Ammersee Germany](images/ammersee.png)
+
+*Super-resolution example of the 20m/px bands of Lake Ammersee in Germany*
 
 ### Key Features
 - **Multi-scale super-resolution**: Enhances 20m → 10m and 60m → 10m bands
@@ -33,8 +38,6 @@ This implementation reproduces the methodology from:
 > Published in *Remote Sensing* journal  
 > [Read the paper](https://www.mdpi.com/2072-4292/13/24/5007)
 
-## Quick Start
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MrJJimenez/Super-Resolution-of-Sentinel-2-Low-Resolution/blob/main/training/training.ipynb)
 
 ### Environment Setup
 ```bash
