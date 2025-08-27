@@ -8,11 +8,12 @@
 
 </div>
 
+## Motivation
+High spatial resolution is essential for precise land cover classification and vegetation monitoring. However, not all bands provided by [Sentinel-2](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2) have high resolution. By leveraging the spatial and structural information from the high-resolution bands, the low-resolution bands can be super-resolved. This is possible under the assumption that all images are self-similar and scale-invariant.
 
 ## Overview
 
-This project implements **single-image super-resolution** for Sentinel-2 satellite imagery using **Residual Dense Convolutional Neural Networks (RDCNNs)**. The goal is to enhance the spatial resolution of Sentinel-2's lower-resolution spectral bands (20m and 60m) by leveraging information from the higher-resolution 10m bands. High spatial resolution is essential for
-precise land cover classification and vegetation monitoring.
+This project implements **single-image super-resolution** for Sentinel-2 satellite imagery using **Residual Dense Convolutional Neural Networks (RDCNNs)**. The goal is to enhance the spatial resolution of Sentinel-2's lower-resolution spectral bands (20m and 60m) by leveraging information from the higher-resolution 10m bands.
 
 ## Quick Start
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MrJJimenez/Super-Resolution-of-Sentinel-2-Low-Resolution/blob/main/training/training.ipynb)
