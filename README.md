@@ -5,6 +5,8 @@
 ![DL model](images/model.png)
 
 *Sen2-RDSR (Sentinel-2 Residual Dense Super-Resolution)*
+[Analysis of the research paper by Salgueiro et al. 2021](Super-resolution_jjimenez.pdf)
+
 
 </div>
 
@@ -21,7 +23,6 @@ You can fully train and reproduce this implementation using Google Colab.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MrJJimenez/Super-Resolution-of-Sentinel-2-Low-Resolution/blob/main/training/training.ipynb)
 
-> **_NOTE_**: This project is still in progress.
 
 ![Ammersee Germany](images/ammersee.png)
 
