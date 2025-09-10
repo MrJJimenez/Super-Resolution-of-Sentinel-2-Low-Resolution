@@ -1,14 +1,12 @@
 <h1 align=center> Sentinel-2 Super-Resolution </h1>
 
-<div align="center">
-
-![DL model](images/model.png)
-
-*Sen2-RDSR (Sentinel-2 Residual Dense Super-Resolution)*
-[Analysis of the research paper by Salgueiro et al. 2021](Super-resolution_jjimenez.pdf)
-
-
-</div>
+<p align="center">
+  <img src="images/model.png" alt="DL model" width="400"/><br><br>
+  <b>Sen2-RDSR</b><br>
+  <i>(Sentinel-2 Residual Dense Super-Resolution)</i><br><br>
+  <a href="Super-resolution_jjimenez.pdf">Paper Analysis by JJimenez 2025</a><br>
+  <a href="https://www.mdpi.com/2072-4292/13/24/5007">Original paper by Salgueiro et al. 2021</a>
+</p>
 
 ## Motivation
 High spatial resolution is essential for precise land cover classification and vegetation monitoring. However, not all bands provided by [Sentinel-2](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2) have high resolution. By leveraging the spatial and structural information from the high-resolution bands, the low-resolution bands can be super-resolved. This is possible under the assumption that all images are self-similar and scale-invariant.
@@ -52,7 +50,7 @@ python training/create_patches.py [path_to_SAFE_directory]
 # Train the model on google colab
 jupiter notebook training/training.ipynb
 
-
+```
 
 ## About Sentinel-2
 
