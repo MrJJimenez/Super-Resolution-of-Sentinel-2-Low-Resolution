@@ -1,7 +1,7 @@
 <h1 align=center> Sentinel-2 Super-Resolution </h1>
 
 <p align="center">
-  <img src="images/model.png" alt="DL model" width="400"/><br><br>
+  <img src="images/model.png" alt="DL model"/><br><br>
   <b>Sen2-RDSR</b><br>
   <i>(Sentinel-2 Residual Dense Super-Resolution)</i><br><br>
   <a href="Super-resolution_jjimenez.pdf">Paper Analysis by JJimenez 2025</a><br>
